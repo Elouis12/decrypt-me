@@ -1,4 +1,4 @@
-package main.java.com.example.server.test;
+package com.example.server.test;
 
 import edu.stanford.nlp.dcoref.Document;
 

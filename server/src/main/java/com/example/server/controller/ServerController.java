@@ -1,4 +1,4 @@
-package main.java.com.example.server.controller;
+package com.example.server.controller;
 
 import com.example.server.model.ClientResponse;
 import com.example.server.service.Cipher;

@@ -1,4 +1,4 @@
-package main.java.com.example.server.model;
+package com.example.server.model;
 
 public class ServerResponse {
 

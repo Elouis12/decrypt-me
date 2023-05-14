@@ -1,4 +1,4 @@
-package main.java.com.example.server.service;
+package com.example.server.service;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;

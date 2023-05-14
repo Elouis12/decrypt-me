@@ -1,4 +1,4 @@
-package main.java.com.example.server.service;
+package com.example.server.service;
 
 public class CaesarCipher implements Cipher{
 

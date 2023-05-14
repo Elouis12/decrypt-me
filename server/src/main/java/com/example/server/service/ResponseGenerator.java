@@ -1,4 +1,4 @@
-package main.java.com.example.server.service;
+package com.example.server.service;
 
 import com.theokanning.openai.*;
 import com.theokanning.openai.completion.CompletionRequest;
