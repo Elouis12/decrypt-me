@@ -16,12 +16,9 @@ let NavBar = ()=>{
 
                 {/* MENU ITEMS */}
                 <div className="hidden space-x-6 md:flex ">
-                    <a href="#" className={"p-2 rounded-md shadow-md hover:text-veryDarkBlue"}>Pricing</a>
-                    <a href="#" className={"p-2 rounded-md shadow-md hover:text-darkGrayishBlue"}>Product</a>
+                    <a href="#" className={"p-2 rounded-md shadow-md hover:text-veryDarkBlue"}>Learn</a>
                     <a href="#" className={"p-2 rounded-md shadow-md hover:text-darkGrayishBlue"}>About</a>
-                    <a href="#" className={"p-2 rounded-md shadow-md hover:text-darkGrayishBlue"}>Careers</a>
-                    <a href="#" className={"p-2 rounded-md shadow-md hover:text-darkGrayishBlue"}>Community</a>
-
+                    <a href="#" className={"p-2 rounded-md shadow-md hover:text-darkGrayishBlue"}>Help</a>
                 </div>
 
 
