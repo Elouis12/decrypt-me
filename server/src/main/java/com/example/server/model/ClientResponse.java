@@ -4,12 +4,14 @@ public class ClientResponse {
 
     private final String message;
     private final String cipher;
+    private final int shift;
     private final String cipherToUse;
 
-    public ClientResponse(String message, String cipher, String cipherToUse){
+    public ClientResponse(String message, String cipher, int shift, String cipherToUse){
 
         this.message = message;
         this.cipher = cipher;
+        this.shift = shift;
         this.cipherToUse = cipherToUse;
     }
 
@@ -20,6 +22,10 @@ public class ClientResponse {
 
     public String getCipher() {
         return cipher;
+    }
+
+    public int getShift() {
+        return shift;
     }
 
     public String getCipherToUse() {

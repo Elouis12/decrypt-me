@@ -8,11 +8,11 @@ public class Main {
 
         CaesarCipher caesarCipher = new CaesarCipher(10);
 
-        String encrypted = caesarCipher.encrypt("^he sky is blue");
+        String encrypted = caesarCipher.encrypt("the sky is blue.");
 
         System.out.println( encrypted );
 
-        String decrypted = caesarCipher.decrypt(encrypted);
+        String decrypted = caesarCipher.decrypt("dro cui sc lveo");
 
         System.out.println( decrypted );
     }

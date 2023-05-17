@@ -12,12 +12,15 @@ public class ResponseHandler {
 
         String message = clientResponse.getMessage();
         String clientCipher = clientResponse.getCipher();
+        int clientCipherShift = clientResponse.getShift();
         String clientCipherToUse = clientResponse.getCipherToUse();
         String clientDecryptedMessage;
 
-        // 1. decrypt message if needed
+        System.out.println(message + " -1");
+        System.out.println(clientCipherShift + " -2");
+       // 1. decrypt message if needed
         if (clientCipher != null) {
-            clientDecryptedMessage = com.example.server.service.CipherFactory.getCipher(clientCipher).decrypt(message);
+            clientDecryptedMessage = CipherFactory.getCipher(clientCipher, clientCipherShift).decrypt(message);
         } else {
             // the message was sent unencrypted
             clientDecryptedMessage = message;
@@ -28,16 +31,19 @@ public class ResponseHandler {
         String responseGenerated = responseGenerator.getResponse();// generate a response using AI
 
         // 3. use specified or random algo to encrypt it
-        Cipher cipher = CipherFactory.getCipher(clientCipherToUse);
+        Cipher cipher = CipherFactory.getCipher(clientCipherToUse, clientCipherShift);
         String encryptedResponse = cipher.encrypt(responseGenerated);
 
-        System.out.println(responseGenerated);
-        System.out.println(encryptedResponse);
+        System.out.println(clientDecryptedMessage + " -3");
+        System.out.println(responseGenerated + " -4");
+        System.out.println(encryptedResponse + " -5");
 
         // 4. save it as a server response object
         ServerResponse serverResponse = ServerResponse.getInstance();/* new ServerResponse(encryptedResponse, cipher.cipher());*/
         serverResponse.setMessage( encryptedResponse ); // the message encrypted
+        serverResponse.setDecryptedMessage( responseGenerated ); // the message encrypted
         serverResponse.setCipher( cipher.cipher() ); // the cipher the server used
+        serverResponse.setShift( clientCipherShift ); // the cipher the shift to be used
         return serverResponse;
 
     }
@@ -45,25 +51,43 @@ public class ResponseHandler {
     public static ServerResponse handleClientDecryptionResponse(ClientResponse clientResponse) {
 
         String clientMessage = clientResponse.getMessage();
+        int clientCipherShift = clientResponse.getShift();
 
+        System.out.println(clientMessage);
+        System.out.println(clientCipherShift);
         ServerResponse serverResponse = ServerResponse.getInstance();
 
         // decrypt the message stored in the server response to check it
-        String originalText = CipherFactory.getCipher( serverResponse.getCipher() ).decrypt(serverResponse.getMessage() );
+/*        String originalText = CipherFactory.getCipher( serverResponse.getCipher(), clientCipherShift ).decrypt( serverResponse.getMessage() );
+        String originalText2 = CipherFactory.getCipher( serverResponse.getCipher(), clientCipherShift ).encrypt( clientMessage );
 
-        if( clientMessage.equalsIgnoreCase( originalText ) ){
+        System.out.println(clientMessage + " - " + originalText + " - " + originalText2 + " - " + serverResponse.getMessage());
+        System.out.println(clientMessage.equalsIgnoreCase(originalText));*/
 
-            serverResponse.setHTTPResponse( "success" );
-            serverResponse.setMessage( null );
-            serverResponse.setCipher( null );
+        if( clientMessage.equalsIgnoreCase( serverResponse.getDecryptedMessage() ) ){
 
-        }else{
-
-            serverResponse.setHTTPResponse( "invalid" );
+            serverResponse.setCorrect( true );
 
         }
 
         return serverResponse;
+
+
+    }
+
+    public static String handleGetDecryptedMessage(int shift) {
+
+
+        ServerResponse serverResponse = ServerResponse.getInstance();
+
+        // decrypt the message stored in the server response to check it
+        String decryptedText = CipherFactory.getCipher( serverResponse.getCipher(), shift ).decrypt( serverResponse.getMessage() );
+
+        System.out.println(shift + " - the shift");
+        System.out.println(serverResponse.getShift() + " - the shift2");
+        System.out.println(decryptedText + " - " + serverResponse.getMessage());
+
+        return serverResponse.getDecryptedMessage();
 
 
     }
