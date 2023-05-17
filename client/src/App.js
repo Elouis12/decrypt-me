@@ -2,29 +2,20 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Intro from "./components/Intro";
 import Index from "./components/Index";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import UserInput from "./components/UserInput";
 import Inputs from "./components/Inputs";
+import CipherContent from "./components/CipherContent";
 
 
 function App() {
   return (
 
-      <Router>
 
-         <>
-              {/*<Index/>*/}
-             <NavBar/>
-             <Inputs/>
-          </>
-
-          {/*<Routes>
-              <Route exact path={'/'}  component={Index}/>
-              <Route exact path={'/about'}  component={Index}/>
-          </Routes>*/}
-
-      </Router>
-
+        <Routes>
+              <Route exact path={'/'}  element={<Index/>}/>
+              <Route exact path={'/get-started'}  element={<CipherContent/>}/>
+      </Routes>
 
 
   );

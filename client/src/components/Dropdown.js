@@ -55,7 +55,7 @@ let Dropdown = ({color, text, message, cipherSelection, items})=>{
                         className={`${ message.error ? 'border-red-300 border-4' : '' } inline-flex justify-center items-center space-x-4 px-5 py-2 ${color} border  rounded-md font-semibold text-white hover:${color} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:${color} max-w-full`}
                         id="menu-button" aria-expanded="true" aria-haspopup="true"
                     onClick={handleMenuClick} /*onBlur={handleMenuClick}*/ ref={dropDownRef}>
-                    <span>{selected}</span>
+                    <span>{message.message === "" ? text : selected}</span>
                     <IoIosArrowDropdownCircle/>
                 </button>
             </div>

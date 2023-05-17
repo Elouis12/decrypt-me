@@ -7,8 +7,10 @@ let Index = ()=>{
     return(
 
         <>
-            <NavBar/>
-            <Intro/>
+            <main className={"h-screen mb-10"} >
+                <NavBar/>
+                <Intro/>
+            </main>
             <Footer/>
         </>
     )

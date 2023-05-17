@@ -6,7 +6,7 @@ let Footer = ()=>{
 
     return(
 
-        <footer className={"absolute bottom-0 flex flex-col justify-center items-center h-32 bg-black w-full space-y-3"}>
+        <footer className={" flex flex-col justify-center items-center h-32 bg-black w-full space-y-3"}>
             {/* SOCIALS */}
             <div className={"flex item-center justify-center space-x-6"}>
 
