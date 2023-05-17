@@ -29,7 +29,7 @@ public class ResponseGenerator {
 
         this.input = input;
 
-        this.API_KEY = "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";
+        this.API_KEY = "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";
 
         this.generateResponse();
 

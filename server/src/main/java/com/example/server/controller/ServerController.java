@@ -9,9 +9,9 @@ import com.example.server.service.ResponseHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.tomcat.util.json.ParseException;
 import org.json.JSONException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+@CrossOrigin(origins = "http://localhost:3000")
 
 // handling routes for user
 @RestController
@@ -25,12 +25,22 @@ public class ServerController {
         return ResponseHandler.handleClientPromptResponse(clientResponse);
 
     }
+
     // CHECK THE CLIENT's DECRYPTED STRING
     @PostMapping("/client-decryption-response")
     public ServerResponse checkDecryptedResponse(@RequestBody ClientResponse clientResponse){
 
         return ResponseHandler.handleClientDecryptionResponse(clientResponse);
 
+    }
+
+
+
+    // CHECK THE CLIENT's DECRYPTED STRING
+    @GetMapping("/decrypted-response")
+    public String getDecryptedResponse(int shift){
+
+        return ResponseHandler.handleGetDecryptedMessage(shift);
     }
 
 }

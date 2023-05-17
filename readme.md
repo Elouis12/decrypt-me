@@ -7,7 +7,7 @@ The ai-assistant supports three types of ciphers: Caesar Cipher, Atbash Cipher, 
 
 The ai-assistant also features a Natural Language Processing (NLP) algorithm that generates responses based on the user's input, making the experience more interactive and engaging.
 
-## :bulb: Problegitm Statement
+## :bulb: Problem Statement
 The goal of the "Decrypt Me" project is to create a web application that allows users to encrypt and decrypt messages using simple and engaging techniques such as substitution ciphers (i.e., Caesar cipher, Atbash cipher) and transposition ciphers (i.e., Rail Fence cipher). The application should be easy to use and provide immediate feedback to the user.
 
 ## :pencil: Requirements
@@ -37,6 +37,9 @@ The goal of the "Decrypt Me" project is to create a web application that allows 
     - `CaesarCipher`: implements the decrypt and encrypt functions of the Caesar Cipher by using the interface `Cipher`.
     - `AtbashCipher`: implements the decrypt and encrypt functions of the Atbash Cipher by using the interface `Cipher`.
     - `RailFenceCipher`: implements the decrypt and encrypt functions of the Rail Fence Cipher by using the interface `Cipher`.
+  - `CaesarCipher`: implements the decrypt and encrypt functions of the Caesar Cipher by using the interface `Cipher`.
+  - `AtbashCipher`: implements the decrypt and encrypt functions of the Atbash Cipher by using the interface `Cipher`.
+  - `RailFenceCipher`: implements the decrypt and encrypt functions of the Rail Fence Cipher by using the interface `Cipher`.
 - `ServerResponse`: stores the server's response, and the cipher used.
 - `ClientResponse`: stores the client's response, and the cipher used.
 - `NLPAlgorithm`: generates a response from a given input.
